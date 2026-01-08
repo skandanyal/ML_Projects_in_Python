@@ -5,7 +5,7 @@ This repository contains the ML projects built using popular Python based Machin
 ## Tech Stack
 
 ![Scikit-Learn](https://img.shields.io/badge/Scikitlearn-20232A?style=for-the-badge\&logo=scikitlearn\&logoColor=61DAFB)
-<!-- ![PyTorch](https://img.shields.io/badge/PyTorch-DD0031?style=for-the-badge\&logo=pytorch\&logoColor=white) -->
+![PyTorch](https://img.shields.io/badge/PyTorch-DD0031?style=for-the-badge\&logo=pytorch\&logoColor=white) 
 
 
 Use Google's Colaboratory to view this repo, using the badge:
@@ -17,4 +17,5 @@ Use Google's Colaboratory to view this repo, using the badge:
 
 - California housing prediction (Regression)
 - Heart disease prediction (Classification)
+- MNIST Classification (Classification)
 
