@@ -17,5 +17,5 @@ Use Google's Colaboratory to view this repo, using the badge:
 
 - California housing prediction (Regression)
 - Heart disease prediction (Classification)
-- MNIST Classification (Classification)
+- MNIST Classification using PyTorch (MLP, CNN) (Classification)
 
