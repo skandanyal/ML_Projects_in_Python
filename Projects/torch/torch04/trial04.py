@@ -19,10 +19,9 @@ img_preprocessing = v2.Compose([
 
 def load_image(img_no, transformation):
     # define the path
-    # path = "/home/skandan-c-y/PyCharmProjects/PyTorch"\
-    #        f"/data/intel-image-classification/seg_pred/seg_pred/{img_no}.jpg"
-    #
-    path = '/home/skandan-c-y/PycharmProjects/PyTorch/data/intel-image-classification/seg_pred/seg_pred'\
+
+    # change to correct path while executing
+    path = '/path/to/intel-image-classification/seg_pred/seg_pred'\
             f'/{img_no}.jpg'
 
     if not os.path.exists(path):
