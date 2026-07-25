@@ -98,20 +98,37 @@ Once it says `Application startup complete`, you're live.
 
 ---
 
-### Option B · Docker (reproducible, no "works on my machine" drama)
+### Option B · Docker — pull the pre-built image *(easiest)*
+
+A pre-built image is published to GHCR so you don't have to sit through a 5-minute `pip install torch` ever again:
 
 ```bash
-# build
-docker build -t intel-classifier .
+# pull
+docker pull ghcr.io/skandanyal/ml_projects_in_python/local-intel-scene-api:latest
 
-# run  (mount your trained models in — they aren't in the image)
-docker run -p 8000:8000 -v $(pwd)/models:/app/models intel-classifier
+# run — models are already baked in, just expose the port
+docker run -p 8000:8000 \
+  ghcr.io/skandanyal/ml_projects_in_python/local-intel-scene-api:latest
 
 # open
 #   http://localhost:8000
 ```
 
-> **Note:** The Dockerfile installs the CPU-only build of PyTorch to keep the image size sane (~1.5 GB instead of ~5 GB). If you want GPU inference inside Docker, swap the `--index-url` line in the Dockerfile for the CUDA wheel URL from [pytorch.org](https://pytorch.org/get-started/locally/).
+> **Note:** The published image uses the CPU-only build of PyTorch (~1.5 GB, not the 5 GB CUDA behemoth). The model weights are baked in — no volume mounts, no fuss. Works fine for inference. If you need GPU inside Docker, build from source using the option below.
+
+---
+
+### Option B2 · Docker — build from source *(if you insist)*
+
+Make sure you've run the notebook and the `models/` folder has the two `.pth` files first — they get baked in at build time via `COPY . .`.
+
+```bash
+# build
+docker build -t intel-classifier .
+
+# run
+docker run -p 8000:8000 intel-classifier
+```
 
 ---
 
